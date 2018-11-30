@@ -13,7 +13,17 @@ header.style.padding=6+18*(1-per)+"px";
 
 document.querySelector(".swipe-down").addEventListener("click",function(){
     intro();
-})
+});
+
+document.getElementById("menu-btn").addEventListener("click",function(){
+    document.getElementById("black-bg").style.display="block";
+    document.getElementById("menu").style.display="block";
+});
+
+document.getElementById("black-bg").addEventListener("click",function(){
+    document.getElementById("black-bg").style.display="none";
+    document.getElementById("menu").removeAttribute("style");
+});
 
 function intro(){
     content.scrollBy({ 

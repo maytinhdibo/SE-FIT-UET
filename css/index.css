@@ -19,7 +19,16 @@
   body{
       overflow: auto;
   }
-
+#black-bg{
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 6;
+}
 #content{
     position: fixed;
     top:0;
@@ -51,12 +60,11 @@ footer{
     vertical-align: middle;
     text-align: center;
     padding:6px;
+    z-index: -1;
 }
 /* page */
 #intro{
     padding:0;
-    min-height: 100%;
-    width: 100%;
     position: relative;
     background: #fff;
 }
@@ -64,10 +72,11 @@ footer{
     box-sizing: border-box;
     padding: 0 90px;
     padding-top:80px;
+    padding-bottom: 12px;
     line-height: 1.5;
     overflow: hidden;
-    height: 100%;
-    width: 100%;
+    min-height: 100%;
+        width: 100%;
     background: #f7f7f7;
 }
 .page p + p {
@@ -93,10 +102,36 @@ footer{
 }
 #intro #header{
     position: fixed;
+    box-sizing: border-box;
     width: 100%;
     color:#fff;
     padding:24px;
-    z-index: 10;
+    z-index: 5;
+}
+#intro #header #hmenu, #menu-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding:0 18px;
+}
+#menu-btn{
+    cursor: pointer;
+    display: none;
+}
+#intro #header #menu-btn img{
+    height: 30px;
+}
+#intro #header .hmenu-item{
+    margin-left:12px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    transition: 0.25s;
+    cursor: pointer;
+}
+#intro #header .hmenu-item:hover{
+    text-decoration: underline;
 }
 #intro .welcome{
     color:#fff;
@@ -110,12 +145,6 @@ footer{
 }
 #intro #header .title{
     font-size:22px;
-}
-#intro #header span{
-    vertical-align: middle;
-    font-size: 20px;
-    padding:6px;
-    font-style: italic;
 }
 #intro #header img{
     vertical-align: middle;
@@ -141,6 +170,10 @@ footer{
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
+    transition: 0.25s;
+}
+#intro #menu .menu-item:hover{
+    box-shadow:rgba(44, 55, 44, 0.35) 1px 2px 7px 1px;
 }
 #intro #menu .menu-item img{
     height:45px;
@@ -172,4 +205,78 @@ animation-duration: 1s;
 /* content */
 .text-content{
     padding:9px 64px;
+}
+
+
+/* responsive */
+@media only screen and (max-width: 600px) {
+    footer span{
+        display: none;
+    }
+    footer::after{
+        content:'P314, 316, 318, 321 - E3, 144 Xuân Thủy, Cầu Giấy, HN'
+    }
+    .header table td{
+        padding:0;
+    }
+    .title span {
+        display: none;
+      }
+      .title:after {
+        content: 'Công Nghệ Phần Mềm';
+      }
+      .tel{
+          display: none;
+      }
+      .page{
+        padding-top:75px;
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+}
+/* tablet */
+@media only screen and (max-width: 768px) {
+    #hmenu{
+        display: none;
+    }
+   #menu-btn{
+    display: inline;
+}
+#intro .welcome{
+    left:10%;
+}
+#intro #menu{
+    display: none;
+    position: fixed;
+    background: #fff;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    top: auto;
+    left: 0;
+    transform: none;
+    border-top: 1px solid #eee;
+    box-shadow: 0 0 2px rgba(51, 51, 51, 0.671);
+    padding: 0;
+    border-radius: 0;
+    z-index: 11;
+}
+#intro #menu img{
+    display: none;
+}
+#intro #menu .menu-item:hover{
+    background: rgba(51, 51, 51, 0.2);
+    box-shadow: none;
+}
+#intro #menu .menu-item{
+    display: block;
+    padding:16px 24px;
+    background: none;
+    margin:0;
+    color:#333;
+    border-radius:0;
+    box-shadow: none;
+   /* display: none; */
+}
+
 }
