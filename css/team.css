@@ -1,0 +1,87 @@
+.info-title{
+    width: 100%;
+    background: #3e81c2;
+    color:#fff;
+    padding:3px 12px;
+    font-size:17px;
+    margin-top:3px;
+    box-sizing: border-box;
+}
+.person{
+    border-bottom: 1px solid #ccc;
+    padding:6px;
+    margin:9px;
+    flex: 50%;
+    width:100%;
+}
+.person .avatar, .canbo .avatar{
+    height:175px;
+    width: 150px;
+    border-radius:9px;
+    background-color:#ccc;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 4px rgba(102, 102, 102, 0.5);
+    /* border:solid 1px #eee; */
+}
+.person .info{
+    position: relative;
+    padding:16px 16px 0 9px;
+}
+.person .name{
+    font-weight: 700;
+    position: absolute;
+    font-size:18px;
+    top:0;
+}
+.person .about{
+    font-weight: 400;
+    font-size:14px;
+    color:#666;
+}
+.person .email{
+    font-weight: 700;
+    position: absolute;
+    bottom:0;
+    font-size:14px;
+    color:#999;
+    background: #f7f7f7;
+    padding:0;
+}
+.person ul {
+    list-style-type: none;
+  }
+
+.cohuu{
+    display: flex;
+}
+
+.canbo .avatar{
+    margin: auto;
+}
+.canbo .info {
+    float: left;
+    width: 25%;
+    text-align: center;
+    padding:6px 0;
+}
+.canbo figure{
+    padding:3px;
+}
+.canbo{
+    padding:12px 0;
+}
+.canbo:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media only screen and (max-width: 768px) {
+    .cohuu{
+        display: block;
+    }
+    .canbo .info {
+        width: 50%;
+    }
+}
