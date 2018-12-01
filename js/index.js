@@ -33,23 +33,23 @@ function intro(){
       });
 }
 
-// function loadpage(title,name){
-//     content.scrollBy({ 
-//         top: document.getElementById("intro").clientHeight+document.getElementById("intro-page").clientHeight-content.scrollTop, 
-//         left: 0, 
-//         behavior: 'smooth' 
-//       });
-//       loading();
-//     fetch('/page/'+name+'.html')
-//   .then(function(response) {
-//     return response.text();
-//   })
-//   .then(function(result) {
-//     document.getElementById("load-content").innerHTML=result;
-//     unloading();
-//   });
-// }
-// loadpage('adsf','doingu');
+function loadpage(title,name){
+    content.scrollBy({ 
+        top: document.getElementById("intro").clientHeight+document.getElementById("intro-page").clientHeight-content.scrollTop, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
+      loading();
+    fetch('page/'+name+'.html')
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(result) {
+    document.getElementById("load-content").innerHTML=result;
+    unloading();
+  });
+}
+loadpage('adsf','doingu');
 
 function loading(){
     document.querySelector(".loading").style.display="block";

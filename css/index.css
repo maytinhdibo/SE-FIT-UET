@@ -4,7 +4,6 @@
     font-family: 'Quicksand', sans-serif;
     overflow: hidden;
     scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
 }
 
 /*  animate */
@@ -45,6 +44,7 @@
     /* right: 350px; */
     right: 0;
     left: 0;
+    -webkit-overflow-scrolling: touch;
     /* background:#653;  */
 }
 #right-side{
