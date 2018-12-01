@@ -1,7 +1,7 @@
 var content=document.getElementById("content");
-var height=document.getElementById("intro").clientHeight;
 
 content.addEventListener("scroll",function(e){
+var height=document.getElementById("intro").clientHeight;
 var scroll=e.target.scrollTop;
 var header=document.getElementById("header");
 var per=scroll/height;
@@ -27,8 +27,36 @@ document.getElementById("black-bg").addEventListener("click",function(){
 
 function intro(){
     content.scrollBy({ 
-        top: height, 
+        top: document.getElementById("intro").clientHeight-content.scrollTop, 
         left: 0, 
         behavior: 'smooth' 
       });
+}
+
+function loadpage(title,name){
+    content.scrollBy({ 
+        top: document.getElementById("intro").clientHeight+document.getElementById("intro-page").clientHeight-content.scrollTop, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
+      loading();
+    fetch('/page/'+name+'.html')
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(result) {
+    document.getElementById("load-content").innerHTML=result;
+    unloading();
+  });
+}
+loadpage('adsf','doingu');
+
+function loading(){
+    document.querySelector(".loading").style.display="block";
+    document.querySelector(".loading-bar").style.display="block";
+}
+
+function unloading(){
+    document.querySelector(".loading").style.display="none";
+    document.querySelector(".loading-bar").style.display="none";
 }

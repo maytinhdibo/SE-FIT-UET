@@ -4,6 +4,7 @@
     font-family: 'Quicksand', sans-serif;
     overflow: hidden;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 /*  animate */
@@ -15,6 +16,13 @@
         padding-top: 12px;
     }
   }
+
+  @keyframes  move {
+    0% {right: 100%;}
+    50% {right: 0;}
+    75% {right: 0; }
+    100% {right: 100%;}
+  } 
 
   body{
       overflow: auto;
@@ -206,7 +214,25 @@ animation-duration: 1s;
 .text-content{
     padding:9px 64px;
 }
-
+/* loading */
+.loading{
+    position: fixed;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+color:#aaa;
+font-size:24px;
+}
+.loading-bar{
+    position: fixed;
+    bottom:30px;
+    width: 40px;
+    height: 4px;
+    border-radius: 9px;
+    background: #347fc3;
+    -webkit-animation: move 5s infinite;
+  }
+  
 
 /* responsive */
 @media only screen and (max-width: 600px) {
