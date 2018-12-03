@@ -4,15 +4,17 @@
     color:#fff;
     padding:3px 12px;
     font-size:17px;
-    margin-top:3px;
+    margin-top:6px;
+    text-transform: uppercase;
     box-sizing: border-box;
 }
 .person{
     border-bottom: 1px solid #ccc;
-    padding:6px;
-    margin:9px;
-    flex: 50%;
-    width:100%;
+    padding:16px 6px;
+    /* margin:9px; */
+    box-sizing: border-box;
+    width:50%;
+    float: left;
 }
 .person .avatar, .canbo .avatar{
     height:175px;
@@ -26,7 +28,7 @@
 }
 .person .info{
     position: relative;
-    padding:16px 16px 0 9px;
+    padding:24px 16px 0 9px;
 }
 .person .name{
     font-weight: 700;
@@ -52,8 +54,15 @@
     list-style-type: none;
   }
 
-.cohuu{
-    display: flex;
+.cohuu a, .canbo a{
+    color:#3e81c2;
+    text-decoration: none;
+}
+
+.cohuu:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .canbo .avatar{
@@ -64,9 +73,13 @@
     width: 25%;
     text-align: center;
     padding:6px 0;
+    overflow: hidden;
 }
 .canbo figure{
     padding:3px;
+}
+.canbo figcaption{
+    padding-top:6px;
 }
 .canbo{
     padding:12px 0;
@@ -76,10 +89,34 @@
     display: table;
     clear: both;
 }
+.list-name{
+    max-width: 100%;
+    overflow-x:auto;
+}
+.table-name{
+    width:100%;
+    margin:12px 0;
+    color:#666;
+    border-color:#777;  
+    border-collapse: collapse;
+}
+.table-name, .table-name th, .table-name td {
+    border:1px solid #777;
+ }
 
+.table-name td{
+    padding:3px;
+}
+@media only screen and (max-width: 600px) {
+    .canbo figcaption{
+        white-space: nowrap;
+        font-size:smaller;
+        text-overflow: ellipsis;
+    }
+}
 @media only screen and (max-width: 768px) {
-    .cohuu{
-        display: block;
+    .person{
+        width:100%;
     }
     .canbo .info {
         width: 50%;
