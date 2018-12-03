@@ -1,6 +1,8 @@
 .info-title{
     width: 100%;
-    background: #3e81c2;
+    background-color: #3e81c2;
+    border-radius: 9px;
+    background-image: linear-gradient(#00c6ff, #348fff);
     color:#fff;
     padding:3px 12px;
     font-size:17px;
@@ -13,8 +15,11 @@
     padding:16px 6px;
     /* margin:9px; */
     box-sizing: border-box;
-    width:50%;
+    width:49.5%;
     float: left;
+}
+.person:nth-child(odd) {
+    margin-right:1%;
 }
 .person .avatar, .canbo .avatar{
     height:175px;
@@ -106,6 +111,9 @@
 
 .table-name td{
     padding:3px;
+}
+.list-name{
+    padding:0 9px;
 }
 @media only screen and (max-width: 600px) {
     .canbo figcaption{

@@ -101,9 +101,12 @@ footer {
     padding-bottom: 12px;
     line-height: 1.5;
     overflow: hidden;
-    min-height: 100%;
     width: 100%;
     background: #f7f7f7;
+}
+#load-content{
+    border-top:1px solid #ddd;
+    min-height: 100%;
 }
 
 .page p+p {
