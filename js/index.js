@@ -13,9 +13,7 @@ for (var key in vi) {
 function load() {
     for (let index = 0; index < vi.length; index++) {
         loadpage(vi[index][1], vi[index][0], false);
-        console.log(index);
     }
-    console.log("done");
 }
 load();
 
@@ -92,10 +90,18 @@ document.getElementById("menu-btn").addEventListener("click", function () {
     // document.querySelector("#content").style.bottom=0;
 });
 
-document.getElementById("black-bg").addEventListener("click", function () {
+document.getElementById("hmenu").addEventListener("click", function () {
+    removeBg();
+});
+
+function removeBg() {
     document.getElementById("black-bg").style.display = "none";
     document.getElementById("hmenu").removeAttribute("style");
     document.querySelector("#content").removeAttribute("style");
+}
+
+document.getElementById("black-bg").addEventListener("click", function () {
+    removeBg();
 });
 
 window.addEventListener("hashchange", function () {
@@ -133,7 +139,7 @@ function intro() {
     });
 }
 
-async function loadpage(title, name, scroll) {
+function loadpage(title, name, scroll) {
     document.getElementById(name).innerHTML = "";
     // if (scroll) {
     //     content.scrollBy({
@@ -143,7 +149,7 @@ async function loadpage(title, name, scroll) {
     //     });
     // }
 
-    await fetch('page/' + name + '.html')
+    fetch('page/' + name + '.html')
         .then(function (response) {
             return response.text();
         })
