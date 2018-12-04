@@ -116,9 +116,7 @@ function getHash() {
         document.title = langVi[id] + " | Bộ môn Công Nghệ Phần Mềm";
 
         if (!(document.readyState === 'complete')) {
-            alert(document.readyState);
-            alert(document.querySelector(location.hash).getBoundingClientRect().top);
-            content.scrollBy({
+            content.scrollTo({
                 top: document.querySelector(location.hash).getBoundingClientRect().top,
                 left: 0,
                 behavior: 'smooth'
