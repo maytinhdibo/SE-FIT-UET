@@ -104,8 +104,9 @@ footer {
     width: 100%;
     background: #f7f7f7;
 }
-#load-content{
-    border-top:1px solid #ddd;
+
+#load-content {
+    border-top: 1px solid #ddd;
     min-height: 100%;
 }
 
@@ -117,14 +118,15 @@ footer {
     margin-top: 8px;
 }
 
-.page section{
-    margin-top:16px;
-    margin-bottom:16px;
+.page section {
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
-h3.titlep{
+
+h3.titlep {
     display: list-item;
     list-style-type: disc;
-    list-style-position: inside;    
+    list-style-position: inside;
 }
 
 #intro #slide {
@@ -301,7 +303,7 @@ a {
     height: 4px;
     border-radius: 9px;
     background: #347fc3;
-    -webkit-animation: move 5s infinite;
+    animation: move 5s infinite;
     /* display: none; */
 }
 
@@ -325,10 +327,14 @@ a {
     width: 80%;
     vertical-align: middle;
 }
-#nghiencuu,#doingu, #giangday{
-    border-top:1px solid #ececec;
-}
 
+#nghiencuu, #doingu, #giangday {
+    border-top: 1px solid #ececec;
+}
+/* nghiencuu page */
+#nghiencuu img{
+    max-width: 100%;
+}
 /* responsive */
 
 @media only screen and (max-width: 600px) {
@@ -339,7 +345,7 @@ a {
         display: none;
     }
     footer::after {
-        font-size:15px;
+        font-size: 15px;
         content: 'P314, 316, 318, 321 - E3, 144 Xuân Thủy, Cầu Giấy, HN'
     }
     .header table td {

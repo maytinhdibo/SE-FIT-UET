@@ -1,66 +1,74 @@
-.info-title{
+.info-title {
     width: 100%;
     background-color: #3e81c2;
     border-radius: 9px;
     background-image: linear-gradient(#00c6ff, #348fff);
-    color:#fff;
-    padding:3px 12px;
-    font-size:17px;
-    margin-top:6px;
+    color: #fff;
+    padding: 3px 12px;
+    font-size: 17px;
+    margin-top: 6px;
     text-transform: uppercase;
     box-sizing: border-box;
 }
-.person{
+
+.person {
     border-bottom: 1px solid #ccc;
-    padding:16px 6px;
+    padding: 16px 6px;
     /* margin:9px; */
     box-sizing: border-box;
-    width:49.5%;
+    width: 49.5%;
     float: left;
 }
+
 .person:nth-child(odd) {
-    margin-right:1%;
+    margin-right: 1%;
 }
-.person .avatar, .canbo .avatar{
-    height:175px;
+
+.person .avatar, .canbo .avatar {
+    height: 175px;
     width: 150px;
-    border-radius:9px;
-    background-color:#ccc;
+    border-radius: 9px;
+    background-color: #ccc;
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 4px rgba(102, 102, 102, 0.5);
     /* border:solid 1px #eee; */
 }
-.person .info{
+
+.person .info {
     position: relative;
-    padding:24px 16px 0 9px;
+    padding: 24px 16px 0 9px;
 }
-.person .name{
+
+.person .name {
     font-weight: 700;
     position: absolute;
-    font-size:18px;
-    top:0;
+    font-size: 18px;
+    top: 0;
 }
-.person .about{
+
+.person .about {
     font-weight: 400;
-    font-size:14px;
-    color:#666;
+    font-size: 14px;
+    color: #666;
 }
-.person .email{
+
+.person .email {
     font-weight: 700;
     position: absolute;
-    bottom:0;
-    font-size:14px;
-    color:#999;
+    bottom: 0;
+    font-size: 14px;
+    color: #999;
     background: #f7f7f7;
-    padding:0;
+    padding: 0;
 }
+
 .person ul {
     list-style-type: none;
-  }
+}
 
-.cohuu a, .canbo a{
-    color:#3e81c2;
+.cohuu a, .canbo a {
+    color: #3e81c2;
     text-decoration: none;
 }
 
@@ -70,61 +78,72 @@
     clear: both;
 }
 
-.canbo .avatar{
+.canbo .avatar {
     margin: auto;
 }
+
 .canbo .info {
     float: left;
     width: 25%;
     text-align: center;
-    padding:6px 0;
+    padding: 6px 0;
     overflow: hidden;
 }
-.canbo figure{
-    padding:3px;
+
+.canbo figure {
+    padding: 3px;
 }
-.canbo figcaption{
-    padding-top:6px;
+
+.canbo figcaption {
+    padding-top: 6px;
 }
-.canbo{
-    padding:12px 0;
+
+.canbo {
+    padding: 12px 0;
 }
+
 .canbo:after {
     content: "";
     display: table;
     clear: both;
 }
-.list-name{
+
+.list-name {
     max-width: 100%;
-    overflow-x:auto;
+    overflow-x: auto;
 }
-.table-name{
-    width:100%;
-    margin:12px 0;
-    color:#666;
-    border-color:#777;  
+
+.table-name {
+    width: 100%;
+    margin: 12px 0;
+    color: #666;
+    border-color: #777;
     border-collapse: collapse;
 }
-.table-name, .table-name th, .table-name td {
-    border:1px solid #777;
- }
 
-.table-name td{
-    padding:3px;
+.table-name, .table-name th, .table-name td {
+    border: 1px solid #777;
 }
-.list-name{
-    padding:0 9px;
+
+.table-name td {
+    padding: 3px;
 }
+
+.list-name {
+    padding: 0 9px;
+}
+
 @media only screen and (max-width: 600px) {
-    .canbo figcaption{
+    .canbo figcaption {
         white-space: nowrap;
-        font-size:smaller;
+        font-size: smaller;
         text-overflow: ellipsis;
     }
 }
+
 @media only screen and (max-width: 768px) {
-    .person{
-        width:100%;
+    .person {
+        width: 100%;
     }
     .canbo .info {
         width: 50%;
