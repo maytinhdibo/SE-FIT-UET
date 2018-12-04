@@ -8,6 +8,14 @@ for (var key in vi) {
     langVi[vi[key][0]] = vi[key][1];
 }
 
+for (let index = 0; index < vi.length; index++) {
+    loadpage(vi[index][1],vi[index][0],false);
+}
+
+window.addEventListener("load",function(){
+    getHash();
+})
+
 //check if not Mac, change scrollbar
 if (navigator.appVersion.indexOf("Mac") == -1) {
     var css = `::-webkit-scrollbar {
@@ -83,7 +91,12 @@ document.getElementById("black-bg").addEventListener("click", function () {
 });
 
 window.addEventListener("hashchange", function () {
-    getHash();
+    console.log("change");
+    document.getElementById("black-bg").removeAttribute("style");
+    document.getElementById("hmenu").removeAttribute("style");
+    document.querySelector("#content").removeAttribute("style");
+    // getHash();
+    // document.title = title + " | Bộ môn Công Nghệ Phần Mềm";
 });
 
 function getHash() {
@@ -92,10 +105,13 @@ function getHash() {
         document.getElementById("black-bg").style.display = "none";
         document.getElementById("hmenu").removeAttribute("style");
         document.querySelector("#content").removeAttribute("style");
-        loadpage(langVi[id], id);
+        content.scrollTo({
+            top: document.querySelector(location.hash).getBoundingClientRect().top,
+            left: 0,
+            behavior: 'smooth'
+        });
     };
 }
-getHash();
 
 function intro() {
     content.scrollBy({
@@ -105,34 +121,36 @@ function intro() {
     });
 }
 
-function loadpage(title, name) {
-    document.getElementById("load-content").style.display = "block";
-    document.getElementById("load-content").innerHTML = "";
-    document.title = title + " | Bộ môn Công Nghệ Phần Mềm";
-    content.scrollBy({
-        top: document.getElementById("intro").clientHeight + document.getElementById("intro-page").clientHeight - content.scrollTop,
-        left: 0,
-        behavior: 'smooth'
-    });
+function loadpage(title, name, scroll) {
     loading();
+    document.getElementById(name).innerHTML = "";
+    // if (scroll) {
+    //     content.scrollBy({
+    //         top: document.querySelector("#" + name).getBoundingClientRect().top,
+    //         left: 0,
+    //         behavior: 'smooth'
+    //     });
+    // }
+
     fetch('page/' + name + '.html')
         .then(function (response) {
             return response.text();
         })
         .then(function (result) {
-            document.getElementById("load-content").innerHTML = result;
+            document.getElementById(name).innerHTML = result;
             unloading();
         });
 }
 
 
+
 function loading() {
-    document.querySelector(".loading").style.display = "block";
+    // document.querySelector(".loading").style.display = "block";
     document.querySelector(".loading-bar").style.display = "block";
 }
 
 function unloading() {
-    document.querySelector(".loading").style.display = "none";
+    // document.querySelector(".loading").style.display = "none";
     document.querySelector(".loading-bar").style.display = "none";
 }
 
