@@ -4,13 +4,20 @@ var vi = [
     ["giangday", "Giảng dạy"]
 ];
 var langVi = new Array();
-for (var key in vi) {
-    langVi[vi[key][0]] = vi[key][1];
-}
 
+
+    for (var key in vi) {
+        langVi[vi[key][0]] = vi[key][1];
+    }
+
+ function load(){
 for (let index = 0; index < vi.length; index++) {
-    loadpage(vi[index][1],vi[index][0],false);
+     loadpage(vi[index][1],vi[index][0],false);
+    console.log(index);
 }
+console.log("done");
+}
+load();
 
 window.addEventListener("load",function(){
     getHash();
@@ -122,7 +129,7 @@ function intro() {
     });
 }
 
-function loadpage(title, name, scroll) {
+async function loadpage(title, name, scroll) {
     document.getElementById(name).innerHTML = "";
     // if (scroll) {
     //     content.scrollBy({
@@ -132,7 +139,7 @@ function loadpage(title, name, scroll) {
     //     });
     // }
 
-    fetch('page/' + name + '.html')
+    await fetch('page/' + name + '.html')
         .then(function (response) {
             return response.text();
         })
