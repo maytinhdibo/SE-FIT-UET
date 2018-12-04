@@ -14,6 +14,7 @@ for (let index = 0; index < vi.length; index++) {
 
 window.addEventListener("load",function(){
     getHash();
+    unloading();
 })
 
 //check if not Mac, change scrollbar
@@ -122,7 +123,6 @@ function intro() {
 }
 
 function loadpage(title, name, scroll) {
-    loading();
     document.getElementById(name).innerHTML = "";
     // if (scroll) {
     //     content.scrollBy({
@@ -138,7 +138,6 @@ function loadpage(title, name, scroll) {
         })
         .then(function (result) {
             document.getElementById(name).innerHTML = result;
-            unloading();
         });
 }
 

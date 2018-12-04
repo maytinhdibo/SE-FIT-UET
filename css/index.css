@@ -302,7 +302,7 @@ a {
     border-radius: 9px;
     background: #347fc3;
     -webkit-animation: move 5s infinite;
-    display: none;
+    /* display: none; */
 }
 
 #to-top {
