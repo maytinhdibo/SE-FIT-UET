@@ -118,7 +118,7 @@ function getHash() {
         if (!(document.readyState === 'complete')) {
             alert(document.readyState);
             alert(document.querySelector(location.hash).getBoundingClientRect().top);
-            content.scrollTo({
+            content.scrollBy({
                 top: document.querySelector(location.hash).getBoundingClientRect().top,
                 left: 0,
                 behavior: 'smooth'
