@@ -6,20 +6,20 @@ var vi = [
 var langVi = new Array();
 
 
-    for (var key in vi) {
-        langVi[vi[key][0]] = vi[key][1];
-    }
-
- function load(){
-for (let index = 0; index < vi.length; index++) {
-     loadpage(vi[index][1],vi[index][0],false);
-    console.log(index);
+for (var key in vi) {
+    langVi[vi[key][0]] = vi[key][1];
 }
-console.log("done");
+
+function load() {
+    for (let index = 0; index < vi.length; index++) {
+        loadpage(vi[index][1], vi[index][0], false);
+        console.log(index);
+    }
+    console.log("done");
 }
 load();
 
-window.addEventListener("load",function(){
+window.addEventListener("load", function () {
     getHash();
     unloading();
 })
@@ -103,8 +103,8 @@ window.addEventListener("hashchange", function () {
     document.getElementById("black-bg").removeAttribute("style");
     document.getElementById("hmenu").removeAttribute("style");
     document.querySelector("#content").removeAttribute("style");
-    // getHash();
-    // document.title = title + " | Bộ môn Công Nghệ Phần Mềm";
+
+    getHash();
 });
 
 function getHash() {
@@ -113,11 +113,15 @@ function getHash() {
         document.getElementById("black-bg").style.display = "none";
         document.getElementById("hmenu").removeAttribute("style");
         document.querySelector("#content").removeAttribute("style");
-        content.scrollTo({
-            top: document.querySelector(location.hash).getBoundingClientRect().top,
-            left: 0,
-            behavior: 'smooth'
-        });
+        document.title = langVi[id] + " | Bộ môn Công Nghệ Phần Mềm";
+
+        if (!(document.readyState === 'complete')) {
+            content.scrollTo({
+                top: document.querySelector(location.hash).getBoundingClientRect().top,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }
     };
 }
 
