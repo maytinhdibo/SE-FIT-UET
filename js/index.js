@@ -116,6 +116,7 @@ function getHash() {
         document.title = langVi[id] + " | Bộ môn Công Nghệ Phần Mềm";
 
         if (!(document.readyState === 'complete')) {
+            alert(document.readyState);
             content.scrollTo({
                 top: document.querySelector(location.hash).getBoundingClientRect().top,
                 left: 0,
