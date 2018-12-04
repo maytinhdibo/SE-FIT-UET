@@ -117,6 +117,7 @@ function getHash() {
 
         if (!(document.readyState === 'complete')) {
             alert(document.readyState);
+            document.querySelector(location.hash).getBoundingClientRect().top
             content.scrollTo({
                 top: document.querySelector(location.hash).getBoundingClientRect().top,
                 left: 0,
