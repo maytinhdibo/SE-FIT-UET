@@ -1,8 +1,7 @@
 var vi = [
     ["doingu", "Đội Ngũ"],
     ["nghiencuu", "Nghiên Cứu"],
-    ["giangday", "Giảng dạy"],
-    ["intro-page", "Department of Software Engineering"]
+    ["giangday", "Giảng dạy"]
 ];
 var langVi = new Array();
 
@@ -93,12 +92,15 @@ document.querySelector("#logo").addEventListener("click", function () {
 });
 
 document.querySelector("#english-btn").addEventListener("click", function () {
+    document.title="Department of Software Engineering";
+    removeBg();
     fetch('page/intro-page.html')
         .then(function (response) {
             return response.text();
         })
         .then(function (result) {
             document.getElementById("intro-page").innerHTML = result;
+            intro();
         });
 });
 
@@ -113,7 +115,7 @@ document.getElementById("hmenu").addEventListener("click", function () {
 });
 
 function removeBg() {
-    document.getElementById("black-bg").style.display = "none";
+    document.getElementById("black-bg").removeAttribute("style");
     document.getElementById("hmenu").removeAttribute("style");
     document.querySelector("#content").removeAttribute("style");
 }
@@ -124,9 +126,7 @@ document.getElementById("black-bg").addEventListener("click", function () {
 
 window.addEventListener("hashchange", function () {
     console.log("change");
-    document.getElementById("black-bg").removeAttribute("style");
-    document.getElementById("hmenu").removeAttribute("style");
-    document.querySelector("#content").removeAttribute("style");
+    removeBg();
 
     document.title = langVi[this.location.hash.substring(1, this.location.hash.length)] + " | Bộ môn Công Nghệ Phần Mềm";
 });
@@ -135,9 +135,7 @@ getHash();
 function getHash() {
     if (location.hash.length >= 2) {
         let id = this.location.hash.substring(1, this.location.hash.length);
-        document.getElementById("black-bg").style.display = "none";
-        document.getElementById("hmenu").removeAttribute("style");
-        document.querySelector("#content").removeAttribute("style");
+        removeBg();
         document.title = langVi[id] + " | Bộ môn Công Nghệ Phần Mềm";
 
             content.scrollTo({
