@@ -385,7 +385,7 @@ a {
     }
 }
 
-.page h1{
+.page h1.title-page{
     text-align: center;
     margin-bottom:9px;
 }
