@@ -1,1 +1,430 @@
-*{margin:0;padding:0;font-family:'Quicksand',sans-serif;overflow:hidden;scroll-behavior:smooth}@keyframes swipe{from{padding-top:3px}to{padding-top:12px}}@keyframes move{0%{right:100%}50%{right:0}75%{right:0}100%{right:100%}}body{overflow:auto}#black-bg{display:none;background:rgba(0,0,0,0.8);position:fixed;top:0;left:0;right:0;bottom:0;z-index:6}#content{position:fixed;top:0;bottom:30px;overflow:auto;right:0;left:0;-webkit-overflow-scrolling:touch;z-index:1}#right-side{position:fixed;top:0;bottom:30px;right:0;width:350px;box-sizing:border-box;border-left:solid #eee 1px}footer{position:fixed;bottom:0;left:0;right:0;height:30px;box-sizing:border-box;background:#fff;border-top:solid #eee 1px;vertical-align:middle;text-align:center;padding:6px;z-index:-1}#intro{padding:0;position:relative;min-height:100%;background:#fff}.page{box-sizing:border-box;padding:0 90px;padding-top:80px;padding-bottom:12px;line-height:1.5;overflow:hidden;width:100%;background:#f7f7f7}#load-content{border-top:1px solid #ddd;min-height:100%}.page p+p{margin-top:16px}.page p+li{margin-top:8px}.page section{margin-top:16px;margin-bottom:16px}h3.titlep{display:list-item;list-style-type:disc;list-style-position:inside}#intro #slide{position:absolute;width:200%;left:-90%;bottom:32vw;border-radius:120px;transform:rotate(20deg);height:100%;background-image:linear-gradient(#00c6ff,#3f77df);background-size:cover;background-position:center;z-index:0}#header{position:fixed;box-sizing:border-box;width:100%;color:#fff;padding:24px;z-index:5;overflow:visible}#header #hmenu,#menu-btn{position:absolute;top:50%;transform:translateY(-50%);right:0;padding:0 18px}#header #hmenu{padding-right:32px}#menu-btn{cursor:pointer;display:none}#header #menu-btn img{height:30px}#header .hmenu-item{margin-left:12px;font-size:18px;font-style:normal;font-weight:700;transition:.25s;cursor:pointer}#header a{color:#fff;text-decoration:none}#header .hmenu-item:hover{text-decoration:underline}#intro .welcome{color:#fff;position:absolute;left:40%;right:10%;top:150px;line-height:1.125;padding:24px 0;overflow:unset}#header .title{font-size:22px}#header img{vertical-align:middle;height:45px}#menu{position:absolute;bottom:80px;left:35px;text-align:center;width:fit-content;border-radius:12px;background:rgba(255,255,255,0.8);box-shadow:rgba(44,55,44,0.498039) 0 1px 4px 0;z-index:1}#menu .menu-item{background:linear-gradient(#00c6ff,#0072ff);color:#fff;padding:12px 18px;border-radius:16px;margin:24px;box-shadow:rgba(44,55,44,0.498039) 0 1px 4px 0;text-align:center;vertical-align:middle;cursor:pointer;transition:.25s}#menu .menu-item:hover{box-shadow:rgba(44,55,44,0.35) 1px 2px 7px 1px}#menu .menu-item img{height:45px;padding:9px;vertical-align:middle}#menu .menu-item span{height:60px;vertical-align:middle}.swipe-down{display:block;text-align:center;position:absolute;left:50%;transform:translateX(-50%);top:100%;cursor:pointer}.swipe-down img{margin:auto;width:20px;animation-duration:1s;animation-name:swipe;animation-iteration-count:infinite;animation-direction:alternate}a{color:#3e81c2;text-decoration:none}.text-content{padding:9px 64px}.loading{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);color:#aaa;font-size:24px;display:none}.loading-bar{position:fixed;bottom:30px;width:40px;height:4px;border-radius:9px;background:#347fc3;animation:move 5s infinite}#to-top{position:fixed;bottom:40px;right:20px;z-index:4;height:40px;width:40px;padding:6px;background:rgba(0,134,226,0.6);border:none;border-radius:100%;transform:rotate(180deg);outline:0;display:none}#to-top img{width:80%;vertical-align:middle}#nghiencuu,#doingu,#giangday{border-top:1px solid #ececec}#nghiencuu img{max-width:100%}@media only screen and (max-width: 600px){#intro .welcome{top:100px}footer span{display:none}footer::after{font-size:15px;content:'P314, 316, 318, 321 - E3, 144 Xuân Thủy, Cầu Giấy, HN'}.header table td{padding:0}.title span{display:none}.title:after{content:'Công Nghệ Phần Mềm'}.tel{display:none}.page{padding-top:75px;padding-left:18px;padding-right:18px}}@media only screen and (max-width: 768px){#menu{display:none}#menu-btn{display:inline}#intro .welcome{left:10%}#header #hmenu{display:none;position:fixed;background:#fff;bottom:0;width:100%;box-sizing:border-box;top:auto;left:0;transform:none;border-top:1px solid #eee;box-shadow:0 0 2px rgba(51,51,51,0.671);padding:0;border-radius:0;z-index:11}#hmenu .hmenu-item:hover{background:rgba(51,51,51,0.2);box-shadow:none}#hmenu .hmenu-item{display:block;padding:16px 24px;background:none;margin:0;color:#333;border-radius:0;box-shadow:none}}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+/*  animate */
+
+@keyframes swipe {
+    from {
+        padding-top: 3px;
+    }
+    to {
+        padding-top: 12px;
+    }
+}
+
+@keyframes move {
+    0% {
+        right: 100%;
+    }
+    50% {
+        right: 0;
+    }
+    75% {
+        right: 0;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+body {
+    overflow: auto;
+}
+
+#black-bg {
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+}
+
+#content {
+    position: fixed;
+    top: 0;
+    bottom: 30px;
+    overflow: auto;
+    /* right: 350px; */
+    right: 0;
+    left: 0;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
+    /* background:#653;  */
+}
+
+#right-side {
+    position: fixed;
+    top: 0;
+    bottom: 30px;
+    right: 0;
+    width: 350px;
+    box-sizing: border-box;
+    border-left: solid #eee 1px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    box-sizing: border-box;
+    background: #fff;
+    border-top: solid #eee 1px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 6px;
+    z-index: -1;
+}
+
+#logo{
+    cursor: pointer;
+}
+/* page */
+
+#intro {
+    padding: 0;
+    position: relative;
+    min-height: 100%;
+    background: #fff;
+}
+
+.page {
+    box-sizing: border-box;
+    padding: 0 90px;
+    padding-top: 80px;
+    padding-bottom: 12px;
+    line-height: 1.5;
+    overflow: hidden;
+    width: 100%;
+    background: #f7f7f7;
+}
+
+#load-content {
+    border-top: 1px solid #ddd;
+    min-height: 100%;
+}
+
+.page p+p {
+    margin-top: 16px;
+}
+
+.page p+li {
+    margin-top: 8px;
+}
+
+.page section {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+h3.titlep {
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+#intro #slide {
+    position: absolute;
+    width: 200%;
+    left: -90%;
+    bottom: 32vw;
+    border-radius: 120px;
+    transform: rotate(20deg);
+    height: 100%;
+    background-image: linear-gradient(#00c6ff, #3f77df);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+#header {
+    position: fixed;
+    box-sizing: border-box;
+    width: 100%;
+    color: #fff;
+    padding: 24px;
+    z-index: 5;
+    overflow: visible;
+}
+
+#header #hmenu, #menu-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    padding: 0 18px;
+}
+
+#header #hmenu {
+    padding-right: 32px;
+}
+
+#menu-btn {
+    cursor: pointer;
+    display: none;
+}
+
+#header #menu-btn img {
+    height: 30px;
+}
+
+#header .hmenu-item {
+    margin-left: 12px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+#header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#header .hmenu-item:hover {
+    text-decoration: underline;
+}
+
+#intro .welcome {
+    color: #fff;
+    position: absolute;
+    left: 40%;
+    right: 10%;
+    top: 150px;
+    line-height: 1.125;
+    padding: 24px 0;
+    overflow: unset;
+}
+
+#header .title {
+    font-size: 22px;
+}
+
+#header img {
+    vertical-align: middle;
+    height: 45px;
+}
+
+#menu {
+    position: absolute;
+    bottom: 80px;
+    left: 35px;
+    text-align: center;
+    width: fit-content;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(44, 55, 44, 0.498039) 0px 1px 4px 0px;
+    z-index: 1;
+}
+
+#menu .menu-item {
+    background: linear-gradient(#00c6ff, #0072ff);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 16px;
+    margin: 24px;
+    box-shadow: rgba(44, 55, 44, 0.498039) 0px 1px 4px 0px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#menu .menu-item:hover {
+    box-shadow: rgba(44, 55, 44, 0.35) 1px 2px 7px 1px;
+}
+
+#menu .menu-item img {
+    height: 45px;
+    padding: 9px;
+    vertical-align: middle;
+}
+
+#menu .menu-item span {
+    height: 60px;
+    vertical-align: middle;
+}
+
+/* button */
+
+.swipe-down {
+    display: block;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    cursor: pointer;
+}
+
+.swipe-down img {
+    margin: auto;
+    width: 20px;
+    animation-duration: 1s;
+    animation-name: swipe;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+a {
+    color: #3e81c2;
+    text-decoration: none;
+}
+
+/* content */
+
+.text-content {
+    padding: 9px 64px;
+}
+
+/* loading */
+
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #aaa;
+    font-size: 24px;
+    display: none;
+}
+
+.loading-bar {
+    position: fixed;
+    bottom: 30px;
+    width: 40px;
+    height: 4px;
+    border-radius: 9px;
+    background: #347fc3;
+    animation: move 5s infinite;
+    /* display: none; */
+}
+
+#to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    z-index: 4;
+    height: 40px;
+    width: 40px;
+    padding: 6px;
+    background: rgba(0, 134, 226, 0.6);
+    border: none;
+    border-radius: 100%;
+    transform: rotate(180deg);
+    outline: 0;
+    display: none;
+    cursor: pointer;
+}
+
+#to-top img {
+    width: 80%;
+    vertical-align: middle;
+}
+
+#nghiencuu, #doingu, #giangday {
+    border-top: 1px solid #ececec;
+}
+/* nghiencuu page */
+#nghiencuu img{
+    display: block;
+    margin: 12px auto;
+    max-width: 100%;
+}
+#nghiencuu .col-li{
+    display: inline-table;
+    padding: 9px;
+}
+#nghiencuu ol{
+    overflow: inherit;
+    list-style-position: inside;
+    padding:9px 12px;
+}
+#nghiencuu ol li+li{
+    margin-top:3px;
+}
+/* responsive */
+
+@media only screen and (max-width: 600px) {
+    #intro .welcome {
+        top: 100px;
+    }
+    footer span {
+        display: none;
+    }
+    footer::after {
+        font-size: 15px;
+        content: 'P314, 316, 318, 321 - E3, 144 Xuân Thủy, Cầu Giấy, HN'
+    }
+    .header table td {
+        padding: 0;
+    }
+    .title span {
+        display: none;
+    }
+    .title:after {
+        content: 'Công Nghệ Phần Mềm';
+    }
+    .tel {
+        display: none;
+    }
+    .page {
+        padding-top: 75px;
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+}
+
+/* tablet */
+
+@media only screen and (max-width: 768px) {
+    #menu {
+        display: none;
+    }
+    #menu-btn {
+        display: inline;
+    }
+    #intro .welcome {
+        left: 10%;
+    }
+    #header #hmenu {
+        display: none;
+        position: fixed;
+        background: #fff;
+        bottom: 0;
+        width: 100%;
+        box-sizing: border-box;
+        top: auto;
+        left: 0;
+        transform: none;
+        border-top: 1px solid #eee;
+        box-shadow: 0 0 2px rgba(51, 51, 51, 0.671);
+        padding: 0;
+        border-radius: 0;
+        z-index: 11;
+    }
+    #hmenu .hmenu-item:hover {
+        background: rgba(51, 51, 51, 0.2);
+        box-shadow: none;
+    }
+    #hmenu .hmenu-item {
+        display: block;
+        padding: 16px 24px;
+        background: none;
+        margin: 0;
+        color: #333;
+        border-radius: 0;
+        box-shadow: none;
+        /* display: none; */
+    }
+}

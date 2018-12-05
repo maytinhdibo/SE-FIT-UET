@@ -1,7 +1,8 @@
 var vi = [
     ["doingu", "Đội Ngũ"],
     ["nghiencuu", "Nghiên Cứu"],
-    ["giangday", "Giảng dạy"]
+    ["giangday", "Giảng dạy"],
+    ["intro-page", "Department of Software Engineering"]
 ];
 var langVi = new Array();
 
@@ -83,6 +84,23 @@ document.querySelector("#to-top").addEventListener("click", function () {
     });
 });
 
+document.querySelector("#logo").addEventListener("click", function () {
+    content.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    });
+});
+
+document.querySelector("#english-btn").addEventListener("click", function () {
+    fetch('page/intro-page.html')
+        .then(function (response) {
+            return response.text();
+        })
+        .then(function (result) {
+            document.getElementById("intro-page").innerHTML = result;
+        });
+});
 
 document.getElementById("menu-btn").addEventListener("click", function () {
     document.getElementById("black-bg").style.display = "block";
@@ -110,9 +128,10 @@ window.addEventListener("hashchange", function () {
     document.getElementById("hmenu").removeAttribute("style");
     document.querySelector("#content").removeAttribute("style");
 
-    getHash();
+    document.title = langVi[this.location.hash.substring(1, this.location.hash.length)] + " | Bộ môn Công Nghệ Phần Mềm";
 });
 
+getHash();
 function getHash() {
     if (location.hash.length >= 2) {
         let id = this.location.hash.substring(1, this.location.hash.length);
@@ -121,14 +140,12 @@ function getHash() {
         document.querySelector("#content").removeAttribute("style");
         document.title = langVi[id] + " | Bộ môn Công Nghệ Phần Mềm";
 
-        if (!(document.readyState === 'complete')) {
             content.scrollTo({
                 top: document.querySelector(location.hash).getBoundingClientRect().top,
                 left: 0,
                 behavior: 'smooth'
             });
-        }
-    };
+    }
 }
 
 function intro() {
