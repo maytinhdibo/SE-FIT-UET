@@ -32,7 +32,6 @@
     background-size: cover;
     background-position: center;
     box-shadow: 0 0 4px rgba(102, 102, 102, 0.5);
-    /* border:solid 1px #eee; */
 }
 
 .person .info {
@@ -45,6 +44,8 @@
     position: absolute;
     font-size: 18px;
     top: 0;
+    bottom: 18px;
+    overflow: auto;
 }
 
 .person .about {

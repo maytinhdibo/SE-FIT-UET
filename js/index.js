@@ -16,6 +16,8 @@ function load() {
     }
 }
 load();
+// loadpage(vi[0][1], vi[0][0], false);
+
 
 window.addEventListener("load", function () {
     getHash();
@@ -23,7 +25,7 @@ window.addEventListener("load", function () {
 })
 
 //check if not Mac, change scrollbar
-if (navigator.appVersion.indexOf("Mac") == -1) {
+if (navigator.appVersion.indexOf("Mac") == -1 && navigator.appVersion.indexOf("Android") == -1) {
     var css = `::-webkit-scrollbar {
         width: 6px;
     }
@@ -83,7 +85,7 @@ document.querySelector("#to-top").addEventListener("click", function () {
     });
 });
 
-document.querySelector("#logo").addEventListener("click", function () {
+document.querySelector("#header table").addEventListener("click", function () {
     content.scrollTo({
         top: 0,
         left: 0,
@@ -92,7 +94,7 @@ document.querySelector("#logo").addEventListener("click", function () {
 });
 
 document.querySelector("#english-btn").addEventListener("click", function () {
-    document.title="Department of Software Engineering";
+    document.title = "Department of Software Engineering";
     removeBg();
     fetch('page/intro-page.html')
         .then(function (response) {
@@ -138,11 +140,11 @@ function getHash() {
         removeBg();
         document.title = langVi[id] + " | Bộ môn Công Nghệ Phần Mềm";
 
-            content.scrollTo({
-                top: document.querySelector(location.hash).getBoundingClientRect().top,
-                left: 0,
-                behavior: 'smooth'
-            });
+        content.scrollTo({
+            top: document.querySelector(location.hash).getBoundingClientRect().top,
+            left: 0,
+            behavior: 'smooth'
+        });
     }
 }
 
@@ -169,7 +171,8 @@ function loadpage(title, name, scroll) {
             return response.text();
         })
         .then(function (result) {
-            document.getElementById(name).innerHTML = result;
+            // document.getElementById(name).innerHTML = result;
+            document.getElementById(name).insertAdjacentHTML("afterbegin", result);
         });
 }
 
