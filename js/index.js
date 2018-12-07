@@ -158,14 +158,6 @@ function intro() {
 
 function loadpage(title, name, scroll) {
     document.getElementById(name).innerHTML = "";
-    // if (scroll) {
-    //     content.scrollBy({
-    //         top: document.querySelector("#" + name).getBoundingClientRect().top,
-    //         left: 0,
-    //         behavior: 'smooth'
-    //     });
-    // }
-
     fetch('page/' + name + '.html')
         .then(function (response) {
             return response.text();
