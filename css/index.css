@@ -97,6 +97,9 @@ footer {
     position: relative;
     min-height: 100%;
     background: #fff;
+    text-shadow: 1px 1px 1px #444;
+    background-image: url("../img/bg.jpg");
+    background-size:cover;
 }
 
 .page {
@@ -147,16 +150,18 @@ h3.titlep {
 
 #intro #slide {
     position: absolute;
-    width: 200%;
-    left: -90%;
-    bottom: 32vw;
-    border-radius: 120px;
-    transform: rotate(20deg);
+    width: 100%;
+    left: 0;
+    right: 0;
+    /* bottom: 32vw; */
+    /* border-radius: 120px; */
+    /* transform: rotate(20deg); */
     height: 100%;
     background-image: linear-gradient(#00c6ff, #3f77df);
     background-size: cover;
     background-position: center;
     z-index: 0;
+    opacity: 0.7;
 }
 
 #header {
@@ -230,36 +235,54 @@ h3.titlep {
 
 #menu {
     position: absolute;
-    bottom: 80px;
-    left: 35px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     text-align: center;
-    width: fit-content;
-    border-radius: 12px;
+    /* width: fit-content; */
+    /* border-radius: 12px; */
     background: rgba(255, 255, 255, 0.8);
     box-shadow: rgba(44, 55, 44, 0.498039) 0px 1px 4px 0px;
     z-index: 1;
 }
 
+#fb-plugin {
+    left: 24px;
+    position: absolute;
+    top: 112px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 9px #4444444a;
+    overflow: hidden;
+    background: #fff;
+}
+
 #menu .menu-item {
-    background: linear-gradient(#00c6ff, #0072ff);
     color: #fff;
-    padding: 12px 18px;
-    border-radius: 16px;
-    margin: 24px;
-    box-shadow: rgba(44, 55, 44, 0.498039) 0px 1px 4px 0px;
+    /* box-shadow: rgba(44, 55, 44, 0.498039) 0px 1px 4px 0px; */
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
     transition: 0.25s;
+    display: inline;
+    padding: 6px;
+    color: #444;
+    text-shadow: none;
+    /* background:#f55; */
+    width: 33.33%;
+    float: left;
+    box-sizing: border-box;
 }
 
 #menu .menu-item:hover {
-    box-shadow: rgba(44, 55, 44, 0.35) 1px 2px 7px 1px;
+    /* box-shadow: rgba(44, 55, 44, 0.35) 1px 2px 7px 1px; */
+    background: #fff;
+    color: #000;
 }
 
 #menu .menu-item img {
-    height: 45px;
+    height: 30px;
     padding: 9px;
+    color: #999;
     vertical-align: middle;
 }
 
@@ -377,12 +400,12 @@ a {
 }
 
 .list {
-    columns: 3;    
-
+    columns: 3;
 }
-.list li{
+
+.list li {
     line-height: 2;
-    font-size:17px;
+    font-size: 17px;
     font-weight: 700;
 }
 
@@ -390,7 +413,7 @@ a {
 
 @media only screen and (max-width: 600px) {
     .list {
-        columns: 2;    
+        columns: 2;
     }
     #intro .welcome {
         top: 100px;
@@ -429,6 +452,9 @@ a {
 /* tablet */
 
 @media only screen and (max-width: 768px) {
+    #fb-plugin {
+        display: none;
+    }
     #menu {
         display: none;
     }
@@ -469,19 +495,21 @@ a {
         /* display: none; */
     }
     .list {
-        columns: 1;    
+        columns: 1;
     }
 }
 
 @keyframes fadeIn {
-    from { opacity: 0;
-        margin-top:40px;
-     }
-    to   { opacity: 1;
-        margin-top:0px;
+    from {
+        opacity: 0;
+        margin-top: 40px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0px;
     }
 }
 
-.fade{
+.fade {
     animation: fadeIn 1s;
 }
