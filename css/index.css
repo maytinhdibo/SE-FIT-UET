@@ -376,9 +376,22 @@ a {
     margin-top: 5px;
 }
 
+.list {
+    columns: 3;    
+
+}
+.list li{
+    line-height: 2;
+    font-size:17px;
+    font-weight: 700;
+}
+
 /* responsive */
 
 @media only screen and (max-width: 600px) {
+    .list {
+        columns: 2;    
+    }
     #intro .welcome {
         top: 100px;
     }
@@ -454,6 +467,9 @@ a {
         border-radius: 0;
         box-shadow: none;
         /* display: none; */
+    }
+    .list {
+        columns: 1;    
     }
 }
 
