@@ -69,6 +69,15 @@ content.addEventListener("scroll", function (e) {
     } else {
         document.getElementById("to-top").style.display = "none";
     }
+
+
+        var els = document.getElementsByClassName("page");
+        Array.prototype.forEach.call(els, function(e) {
+            if(e.getBoundingClientRect().top<document.getElementById("intro").offsetHeight && e.id!="intro"){
+                e.classList.add("fade");
+            };
+        });
+
     header.style.backgroundColor = "rgba(0, 155, 244," + per + ")";
     header.style.padding = 6 + 18 * (1 - per) + "px";
 });

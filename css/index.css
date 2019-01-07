@@ -34,6 +34,7 @@
 
 body {
     overflow: auto;
+    background: #f7f7f7;
 }
 
 #black-bg {
@@ -107,6 +108,17 @@ footer {
     overflow: hidden;
     width: 100%;
     background: #f7f7f7;
+}
+
+.page2 {
+    box-sizing: border-box;
+    /* margin: 90px; */
+    /* padding-top: 80px;
+    padding-bottom: 70px; */
+    line-height: 1.5;
+    overflow: hidden;
+    /* width: 100%;
+    background: #f7f7f7; */
 }
 
 #load-content {
@@ -443,4 +455,17 @@ a {
         box-shadow: none;
         /* display: none; */
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0;
+        margin-top:40px;
+     }
+    to   { opacity: 1;
+        margin-top:0px;
+    }
+}
+
+.fade{
+    animation: fadeIn 1s;
 }
